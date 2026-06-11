@@ -1,28 +1,17 @@
-//your JS code here. If required.
-const bands = [
-  'The Plot in You',
-  'The Devil Wears Prada',
-  'Pierce the Veil',
-  'Norma Jean',
-  'The Bled',
-  'Say Anything',
-  'The Midway State',
-  'We Came as Romans',
-  'Counterparts',
-  'Oh, Sleeper',
-  'A Skylit Drive',
-  'Anywhere But Here',
-  'An Old Dog'
-];
+function stringChop(str, size) {
+  if (str == null) return [];
 
-const strip = str => str.replace(/^(a |an |the )/i, '');
+  size = Number(size);
+  let result = [];
 
-bands.sort((a, b) => strip(a).localeCompare(strip(b)));
+  for (let i = 0; i < str.length; i += size) {
+    result.push(str.slice(i, i + size));
+  }
 
-const ul = document.getElementById('band');
+  return result;
+}
 
-bands.forEach(band => {
-  const li = document.createElement('li');
-  li.textContent = band;
-  ul.appendChild(li);
-});
+// Do not change the code below
+const str = prompt("Enter String.");
+const size = prompt("Enter Chunk Size.");
+alert(stringChop(str, size));
